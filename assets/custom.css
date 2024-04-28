@@ -1,1 +1,10 @@
 /* Place custom css here. */
+
+.prose a {
+    color: darkblue;
+    text-decoration: none;
+  }
+
+.prose  a:hover {
+    color: rgb(0, 0, 242);
+}

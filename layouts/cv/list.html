@@ -1,34 +1,114 @@
 {{ define "main" }}
 <style>
-  .publications ul {
-    list-style-type: disc; /* First level bullet point style */
+  .prose-neutral {
+    --tw-prose-body: #404040;
+    --tw-prose-headings: #171717;
+    --tw-prose-lead: #525252;
+    --tw-prose-links: #171717;
+    --tw-prose-bold: #171717;
+    --tw-prose-counters: #737373;
+    --tw-prose-bullets: #3a3a3a;
+    --tw-prose-hr: #e5e5e5;
+    --tw-prose-quotes: #171717;
+    --tw-prose-quote-borders: #e5e5e5;
+    --tw-prose-captions: #737373;
+    --tw-prose-kbd: #171717;
+    --tw-prose-kbd-shadows: 23 23 23;
+    --tw-prose-code: #171717;
+    --tw-prose-pre-code: #e5e5e5;
+    --tw-prose-pre-bg: #262626;
+    --tw-prose-th-borders: #d4d4d4;
+    --tw-prose-td-borders: #e5e5e5;
+    --tw-prose-invert-body: #d4d4d4;
+    --tw-prose-invert-headings: #fff;
+    --tw-prose-invert-lead: #a3a3a3;
+    --tw-prose-invert-links: #fff;
+    --tw-prose-invert-bold: #fff;
+    --tw-prose-invert-counters: #a3a3a3;
+    --tw-prose-invert-bullets: #525252;
+    --tw-prose-invert-hr: #404040;
+    --tw-prose-invert-quotes: #f5f5f5;
+    --tw-prose-invert-quote-borders: #404040;
+    --tw-prose-invert-captions: #a3a3a3;
+    --tw-prose-invert-kbd: #fff;
+    --tw-prose-invert-kbd-shadows: 255 255 255;
+    --tw-prose-invert-code: #fff;
+    --tw-prose-invert-pre-code: #d4d4d4;
+    --tw-prose-invert-pre-bg: rgb(0 0 0 / 50%);
+    --tw-prose-invert-th-borders: #525252;
+    --tw-prose-invert-td-borders: #404040;
   }
+  
+  .prose
+    :where(ul > li):not(
+      :where([class~='not-prose'], [class~='not-prose'] *)
+    )::marker {
+    font-size:18px;
+    vertical-align:middle;  
+    line-height:0px;
+}
+
+  
   .container ul ul {
       list-style-type: circle; /* Second level bullet point style */
   }
+
+  .cv {
+    line-height: 1.2;
+  }
+
+  .education p{
+    margin-bottom: 10px;
+  }
+
+  .experience li{
+    padding-bottom: 3px;
+  }
+  .experience ul{
+    padding-top: 3px;
+  }
+  .cv h2 {
+    margin-top: 0em;
+    margin-bottom: 0em;
+    border-bottom: 1.5px solid black;
+  }
+  
 </style>
 <div class="cv">
-<div class="experience">
-<h2> Experience</h2>
+<div class="education">
+<h2> Education</h2>
 
 {{ $paginator := .Paginate .RegularPages }}
 {{ $sortedPages := sort $paginator.Pages "Weight" "asc" }}
 {{ range $sortedPages }}
-  {{ if eq .Params.cvtype "experience" }}
+  {{ if eq .Params.cvtype "education" }}
     {{ partial "cvitem.html" . }}
   {{ end }}
 {{ end }}
 </div>
+
+
+<div class="experience">
+  <h2> Experience</h2>
+  
+  {{ $paginator := .Paginate .RegularPages }}
+  {{ $sortedPages := sort $paginator.Pages "Weight" "asc" }}
+  {{ range $sortedPages }}
+    {{ if eq .Params.cvtype "experience" }}
+      {{ partial "cvitem.html" . }}
+    {{ end }}
+  {{ end }}
+  </div>
+
+
 <div class="publications">
 <h2> Publications </h2>
-
-{{/*  {{ }}  */}}
-{{ $specificContent := readFile "content/cv/publications.md" }}
-{{ .Content }}
 
 {{ with .Site.GetPage "page" "publications" }}
   {{ .Content }}
 {{ end }}
 </div>
+
+{{ .Content }}
 </div>
 {{ end }}

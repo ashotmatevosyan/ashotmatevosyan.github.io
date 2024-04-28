@@ -1,5 +1,5 @@
 ---
-cvdate: 'Jun 2020 -- June 2022'
+cvdate: 'Jun 2020 - June 2022'
 cvrole: 'Junior Researcher'
 cvcompany: 'Alikhanyan National Laboratory'
 cvloc: 'Yerevan, Armenia'
@@ -18,6 +18,7 @@ Research topics:
     * We show that it does influence the long-time state of the thermal bath:
     * the magnetic field induces an average orbital momentum for uncharged bath particles
     * the particles, separate into two sets rotating in opposite directions.
+
 supervisor [Prof. Armen Allahverdyan](https://sites.google.com/site/armenallahverdyan/)
 
 	

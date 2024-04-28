@@ -1985,7 +1985,9 @@ article .highlight > div table tr td:last-of-type {
   background-color: rgb(0 0 0 / 2%);
 }
 
-@media (min-width: 1024px) {
+
+/* controls change to the mobile layout */
+@media (min-width: 660px) {
   .lg\:static {
     position: static;
   }
