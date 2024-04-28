@@ -1,0 +1,45 @@
+{{ define "main" }}
+<style>
+#biocontainer {
+    display: flex;
+}
+#biotext {
+    flex: 1;
+    padding: 20px;
+    text-align: justify; /* Justify text */
+}
+#profileimage {
+    max-width: 200px;
+    flex: 1;
+    padding: 20px;
+    /*overflow: hidden; /* Ensure the rounded image stays within its container */
+}
+#profilepic {
+    flex: none;
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+@media (max-width: 768px) {
+    #biocontainer {
+        flex-direction: column;
+    }
+    #profileimage, #biotext {
+        flex: none;
+        width: 100%;
+    }
+}
+</style>
+
+
+<div id="biocontainer">
+    <div id="profileimage">
+        <img id="profilepic" src="profile.jpg" alt="Your Image">
+    </div>
+    <div id="biotext">
+        {{ .Content }}
+    </div>
+</div>
+
+{{ end }}
+
