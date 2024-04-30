@@ -1220,10 +1220,11 @@ body {
   --tw-prose-body: #404040;
   --tw-prose-headings: #171717;
   --tw-prose-lead: #525252;
-  --tw-prose-links: #171717;
+  --tw-prose-links: darkblue;
+  --tw-prose-links-hover: rgb(0, 0, 242);;
   --tw-prose-bold: #171717;
   --tw-prose-counters: #737373;
-  --tw-prose-bullets: #d4d4d4;
+  --tw-prose-bullets: #636262;
   --tw-prose-hr: #e5e5e5;
   --tw-prose-quotes: #171717;
   --tw-prose-quote-borders: #e5e5e5;
@@ -1235,13 +1236,13 @@ body {
   --tw-prose-pre-bg: #262626;
   --tw-prose-th-borders: #d4d4d4;
   --tw-prose-td-borders: #e5e5e5;
-  --tw-prose-invert-body: #d4d4d4;
+  --tw-prose-invert-body: #e6e6e6;
   --tw-prose-invert-headings: #fff;
   --tw-prose-invert-lead: #a3a3a3;
-  --tw-prose-invert-links: #fff;
-  --tw-prose-invert-bold: #fff;
+  --tw-prose-invert-links: #dbffff;
+  --tw-prose-invert-links-hover: #14ffff;
   --tw-prose-invert-counters: #a3a3a3;
-  --tw-prose-invert-bullets: #525252;
+  --tw-prose-invert-bullets: #f0f0f0;
   --tw-prose-invert-hr: #404040;
   --tw-prose-invert-quotes: #f5f5f5;
   --tw-prose-invert-quote-borders: #404040;
@@ -1514,7 +1515,7 @@ body {
 }
 
 .max-w-3xl {
-  max-width: 48rem;
+  max-width: 50rem;
 }
 
 .shrink-0 {
@@ -1575,8 +1576,8 @@ body {
 
 .space-x-10 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
-  margin-right: calc(2.5rem * var(--tw-space-x-reverse));
-  margin-left: calc(2.5rem * calc(1 - var(--tw-space-x-reverse)));
+  margin-right: calc(1.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(1.0rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .break-words {
@@ -1635,8 +1636,8 @@ body {
 }
 
 .px-8 {
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .py-1 {
@@ -1947,6 +1948,7 @@ article .highlight > div table tr td:last-of-type {
   --tw-prose-headings: var(--tw-prose-invert-headings);
   --tw-prose-lead: var(--tw-prose-invert-lead);
   --tw-prose-links: var(--tw-prose-invert-links);
+  --tw-prose-links-hover: var(--tw-prose-invert-links-hover);
   --tw-prose-bold: var(--tw-prose-invert-bold);
   --tw-prose-counters: var(--tw-prose-invert-counters);
   --tw-prose-bullets: var(--tw-prose-invert-bullets);
@@ -1995,6 +1997,8 @@ article .highlight > div table tr td:last-of-type {
   .lg\:ml-12 {
     margin-left: 3rem;
   }
+
+ 
 
   .lg\:mt-0 {
     margin-top: 0px;

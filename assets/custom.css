@@ -1,10 +1,61 @@
 /* Place custom css here. */
 
-.prose a {
-    color: darkblue;
-    text-decoration: none;
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/roboto-v20-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Roboto'), local('Roboto-Regular'),
+       url('../fonts/roboto-v20-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/roboto-v20-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/roboto-v20-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/roboto-v20-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/roboto-v20-latin-regular.svg#Roboto') format('svg'); /* Legacy iOS */
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GHEA";
+  src: url("/fonts/GHEAGrpalatReg.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GHEA";
+  src: url("/fonts/GHEAGrapalatRit.otf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "GHEA";
+  src: url("/fonts/GHEAGpalatBld.otf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GHEA";
+  src: url("/fonts/GHEAGrapalatBlit.otf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+
+body {
+  font-family: 'GHEA', sans-serif;
+}
+
+.prose  a {
+  /* color: darkblue; */
+  text-decoration: none;
+}
+.dark .prose  a {
+    text-decoration:underline;
   }
 
 .prose  a:hover {
-    color: rgb(0, 0, 242);
+  color: var(--tw-prose-links-hover);
+    /* color: rgb(0, 0, 242); */
 }

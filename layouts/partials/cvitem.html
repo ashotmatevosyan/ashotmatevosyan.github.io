@@ -7,10 +7,13 @@
         flex-wrap: wrap;
         justify-content: flex-start;
         margin: 0px;
+        margin-top: 10px;
+        margin-bottom: 15px;
+ 
     }
 
     .left-div, .right-div {
-        padding: 10px;
+        padding: 5px;
         /*  border: 1px solid #ccc;  */
         /*  border-radius: 5px;  */
         /*  margin-bottom: 10px; /* Add margin to separate the boxes */ 
@@ -18,20 +21,22 @@
 
     .left-div {
         text-align: left;
-        margin-right: 10px; /* Add margin to separate the boxes */
+        margin-right: 5px; /* Add margin to separate the boxes */
     }
 
     .right-div {
         text-align: right;
         margin-left: auto; /* Auto margin to push the box to the right side */
+        font-size: smaller; 
+
     }
 
     .third-div {
         width: 90%; /* Set width to 90% */
-        margin-bottom: 10px;
-        margin-left: 10px;
-        font-size: smaller;
-        padding: 10px;
+        margin-bottom: 0px;
+        margin-left: 20px;
+        /*  font-size: smaller;  */
+        padding: 0px;
     }
 
     .third-div p{
@@ -39,7 +44,6 @@
     }
 
     #cvcompany {
-        font-weight: bolder;
     }
     #cvrole {
         font-style: italic;
@@ -50,7 +54,7 @@
 <div class="container">
     <div class="left-div">
         <div>
-        <p id="cvcompany">{{ .Params.cvcompany }}</p>
+        <p id="cvcompany"><strong>{{ .Params.cvcompany }}</strong></p>
         <p id="cvrole">{{ .Params.cvrole }}</p>
         </div>
     </div>

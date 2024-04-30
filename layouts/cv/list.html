@@ -1,43 +1,5 @@
 {{ define "main" }}
 <style>
-  .prose-neutral {
-    --tw-prose-body: #404040;
-    --tw-prose-headings: #171717;
-    --tw-prose-lead: #525252;
-    --tw-prose-links: #171717;
-    --tw-prose-bold: #171717;
-    --tw-prose-counters: #737373;
-    --tw-prose-bullets: #3a3a3a;
-    --tw-prose-hr: #e5e5e5;
-    --tw-prose-quotes: #171717;
-    --tw-prose-quote-borders: #e5e5e5;
-    --tw-prose-captions: #737373;
-    --tw-prose-kbd: #171717;
-    --tw-prose-kbd-shadows: 23 23 23;
-    --tw-prose-code: #171717;
-    --tw-prose-pre-code: #e5e5e5;
-    --tw-prose-pre-bg: #262626;
-    --tw-prose-th-borders: #d4d4d4;
-    --tw-prose-td-borders: #e5e5e5;
-    --tw-prose-invert-body: #d4d4d4;
-    --tw-prose-invert-headings: #fff;
-    --tw-prose-invert-lead: #a3a3a3;
-    --tw-prose-invert-links: #fff;
-    --tw-prose-invert-bold: #fff;
-    --tw-prose-invert-counters: #a3a3a3;
-    --tw-prose-invert-bullets: #525252;
-    --tw-prose-invert-hr: #404040;
-    --tw-prose-invert-quotes: #f5f5f5;
-    --tw-prose-invert-quote-borders: #404040;
-    --tw-prose-invert-captions: #a3a3a3;
-    --tw-prose-invert-kbd: #fff;
-    --tw-prose-invert-kbd-shadows: 255 255 255;
-    --tw-prose-invert-code: #fff;
-    --tw-prose-invert-pre-code: #d4d4d4;
-    --tw-prose-invert-pre-bg: rgb(0 0 0 / 50%);
-    --tw-prose-invert-th-borders: #525252;
-    --tw-prose-invert-td-borders: #404040;
-  }
   
   .prose
     :where(ul > li):not(
@@ -54,7 +16,13 @@
   }
 
   .cv {
+    font-family: 'Calibri', sans-serif;
     line-height: 1.2;
+    
+  }
+  .cv p {
+    margin-top: 0px;
+    margin-bottom: 5px;
   }
 
   .education p{
@@ -70,9 +38,13 @@
   .cv h2 {
     margin-top: 0em;
     margin-bottom: 0em;
-    border-bottom: 1.5px solid black;
+    border-bottom: 1.5px solid;
+    border-color: var(--tw-prose-headings);
   }
-  
+
+  .dark .publications  a {
+    text-decoration: none;
+  }
 </style>
 <div class="cv">
 <div class="education">
@@ -101,13 +73,23 @@
   </div>
 
 
-<div class="publications">
-<h2> Publications </h2>
+  <div class="publications">
+    <h2> Publications </h2>
+    
+    {{ with .Site.GetPage "page" "publications" }}
+      {{ .Content }}
+    {{ end }}
+    </div>
 
-{{ with .Site.GetPage "page" "publications" }}
-  {{ .Content }}
-{{ end }}
-</div>
+
+
+<div class="awards">
+  <h2> Awards </h2>
+  
+  {{ with .Site.GetPage "page" "awards" }}
+    {{ .Content }}
+  {{ end }}
+  </div>
 
 {{ .Content }}
 </div>

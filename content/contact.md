@@ -1,9 +1,8 @@
 +++
 title = "Contact"
-description = "Hugo, the world's fastest framework for building websites"
-date = "2019-02-28"
-author = "lee.so"
+description = "My contact details"
+date = "2024-04-30"
+author = "Ashot Matevosyan"
 +++
-
-- [github.com/nanxiaobei](https://github.com/nanxiaobei)
-- [lee.so](https://lee.so)
+- [ashmat98@gmail.com](mailto:ashmat98@gmail.com)
+- [github.com/ashmat98](https://github.com/ashmat98)

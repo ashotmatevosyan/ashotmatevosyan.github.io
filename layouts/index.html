@@ -5,7 +5,7 @@
 }
 #biotext {
     flex: 1;
-    padding: 20px;
+    padding: 6px;
     text-align: justify; /* Justify text */
 }
 #profileimage {
@@ -20,6 +20,7 @@
     height: auto;
     border-radius: 50%;
 }
+
 @media (max-width: 768px) {
     #biocontainer {
         flex-direction: column;
@@ -32,9 +33,11 @@
 </style>
 
 
+
+    
 <div id="biocontainer">
     <div id="profileimage">
-        <img id="profilepic" src="profile.jpg" alt="Your Image">
+        <img id="profilepic" src="/profile.jpg" alt="Your Image">
     </div>
     <div id="biotext">
         {{ .Content }}
