@@ -55,6 +55,10 @@
   {{ range $.Scratch.Get "social_list" }}
   <link rel="preload" as="image" href="{{ printf `%s.svg` . | absURL }}" />
   {{ end }}
+  <link rel="preload" as="image" href="{{ `email.svg` | absURL }}" />
+  <link rel="preload" as="image" href="{{ `am.svg` | absURL }}" />
+  <link rel="preload" as="image" href="{{ `gb.svg` | absURL }}" />
+
   <!---->
 
   <!-- Highlight JS -->
