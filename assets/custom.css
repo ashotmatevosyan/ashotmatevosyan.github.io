@@ -43,9 +43,45 @@
 }
 
 
+@font-face {
+  font-family: "Mariam";
+  src: url("/fonts/GHEAMariamReg.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Mariam";
+  src: url("/fonts/GHEAMariamRIt.otf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Mariam";
+  src: url("/fonts/GHEAMariamBld.otf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Mariam";
+  src: url("/fonts/GHEAMariamBlit.otf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+
+
 body {
   font-family: 'GHEA', sans-serif;
 }
+
+#top-title[lang="am"], #bottom-title[lang="am"] {
+  font-family: 'Mariam', sans-serif;
+}
+
+
 
 .prose  a {
   /* color: darkblue; */
