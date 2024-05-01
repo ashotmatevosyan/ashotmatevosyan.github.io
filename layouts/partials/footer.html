@@ -3,7 +3,10 @@
 >
   <div class="mr-auto">
     &copy; {{ now.Year }}
-    <a class="link" href="{{ `` | absURL }}">{{ site.Title }}</a>
+    <a class="link" href="{{ `` | absURL }}"
+      id="bottom-title"
+      lang="{{ .Lang }}"
+    >{{ site.Title }}</a>
   </div>
   
   

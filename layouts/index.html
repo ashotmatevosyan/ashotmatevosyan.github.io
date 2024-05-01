@@ -40,6 +40,11 @@
         width: 100%;
     }
 }
+
+#biotext[lang="am"] {
+    font-family: 'Mariam', sans-serif;
+}
+
 </style>
 
 
@@ -49,7 +54,7 @@
     <div id="profileimage">
         <img id="profilepic" src="/profile.jpg" alt="Your Image">
     </div>
-    <div id="biotext">
+    <div id="biotext" lang="{{ .Lang }}">
         {{ .Content }}
     </div>
 </div>
