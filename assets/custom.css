@@ -1,4 +1,12 @@
 /* Place custom css here. */
+*,
+::before,
+::after {
+  --tw-max-width: 50rem;
+  --tw-cv-optimal-width: 580px;
+  --tw-cv-logo-width: 100px;
+}
+
 
 @font-face {
   font-family: 'Roboto';

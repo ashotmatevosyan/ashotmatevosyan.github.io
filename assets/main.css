@@ -1515,7 +1515,7 @@ body {
 }
 
 .max-w-3xl {
-  max-width: 50rem;
+  max-width: var(--tw-max-width);
 }
 
 .shrink-0 {
