@@ -45,21 +45,106 @@
   .dark .publications  a {
     text-decoration: none;
   }
+
+
+
+  .language-container {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 20pt;
+  }
+  .language-container img {
+      height: 1.5vh;
+      width: auto;
+      margin:0;
+  }
+  .language-container p {
+    margin-bottom: 0;
+    margin-left:5pt
+  } 
 </style>
 <div class="cv">
 <h2 style="border-bottom:none; padding-bottom:10px"> <a href="/contact"><strong>Contact me</strong></a></h2>
 
 <div class="education">
+
+{{/*  EDUCATION   */}}
+{{ $educations := .Site.Data.cv.education }}
+{{ if $educations.enabled }}
+<div class="education">
 <h2> Education</h2>
 
-{{ $paginator := .Paginate .RegularPages }}
-{{ $sortedPages := sort $paginator.Pages "Weight" "asc" }}
-{{ range $sortedPages }}
-  {{ if eq .Params.cvtype "education" }}
-    {{ partial "cvitem.html" . }}
-  {{ end }}
+{{ range $key, $item := $educations.list }}
+  {{ partial "cvitem.html" . }}
 {{ end }}
 </div>
+{{ end }}
+
+{{/*  EXPERIENCE   */}}
+{{ $experiences := .Site.Data.cv.experience }}
+{{ if $experiences.enabled }}
+<div class="experience">
+<h2> Expecience</h2>
+
+{{ range $key, $item := $experiences.list }}
+  {{ partial "cvitem.html" . }}
+{{ end }}
+</div>
+{{ end }}
+
+
+{{/*  PUBLICATIONS   */}}
+{{ $publications := .Site.Data.publications }}
+<div class="awards">
+  <h2> Publications </h2>
+  <ul>
+  {{ range $publications }}
+    <li>{{ .content | markdownify}}</li>
+  {{ end }}
+  </ul>
+</div>
+
+{{/*  AWARDS   */}}
+{{ $awards := .Site.Data.cv.awards }}
+{{ if $awards.enabled }}
+<div class="awards">
+  <h2> Awards </h2>
+  <ul>
+  {{ range $awards.list }}
+    <li>{{ . | markdownify}}</li>
+  {{ end }}
+  </ul>
+</div>
+{{ end }}
+
+
+{{/*  COMPUTER SKILLS   */}}
+{{ $computerskils := .Site.Data.cv.computerskils }}
+{{ if $computerskils.enabled }}
+<div class="awards">
+  <h2> Computers Skils </h2>
+  {{ $computerskils.content | markdownify}}
+</div>
+{{ end }}
+
+
+{{/*  LANGUAGES   */}}
+{{ $languages := .Site.Data.cv.languages }}
+{{ if $languages.enabled }}
+<div class="languages">
+  <h2> Languages </h2>
+  <div style="margin-top:6pt">
+  {{ range $languages.list }}
+  <div class="language-container">
+    <img src="{{ .flag }}">
+    <p>{{.name}}</p>
+  </div>
+  {{ end }}
+  </div>
+</div>
+{{ end }}
+
+
 
 {{/*  <div class="experience">
   <h2> Experience</h2>
@@ -74,23 +159,7 @@
   </div>  */}}
 
 
-  <div class="publications">
-    <h2> Publications </h2>
-    
-    {{ with .Site.GetPage "page" "publications" }}
-      {{ .Content }}
-    {{ end }}
-    </div>
 
-
-
-<div class="awards">
-  <h2> Awards </h2>
-  
-  {{ with .Site.GetPage "page" "awards" }}
-    {{ .Content }}
-  {{ end }}
-  </div>
 
 {{ .Content }}
 </div>

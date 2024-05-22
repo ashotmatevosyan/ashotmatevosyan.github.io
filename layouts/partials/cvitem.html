@@ -42,7 +42,14 @@
     .third-div p{
         margin-bottom: 2px;
     }
-
+    
+    .cvitem-head-link {
+        color: var(--tw-prose-links);
+    }
+    .cvitem-head-link:hover {
+        color: var(--tw-prose-links-hover);
+          /* color: rgb(0, 0, 242); */
+    }
     #cvcompany {
     }
     #cvrole {
@@ -50,19 +57,23 @@
     }
 </style>
 
-
+{{ if not .hide }}
 <div class="container">
     <div class="left-div">
         <div>
-        <p id="cvcompany"><strong>{{ .Params.cvcompany }}</strong></p>
-        <p id="cvrole">{{ .Params.cvrole }}</p>
+        <p id="cvcompany">
+            {{if .url }}<a href="{{.url}}" class="cvitem-head-link" target="_blank">{{end}}
+                <strong>{{ .name }}</strong>
+            {{if .url }}</a>{{end}}</p>
+        <p id="cvrole">{{ .role }}</p>
         </div>
     </div>
     <div class="right-div">
-        <p>{{.Params.cvdate }}</p>
-        <p>{{.Params.cvloc }}</p>
+        <p>{{.date | markdownify}}</p>
+        <p>{{.location }}</p>
     </div>
     <div class="third-div">
-        {{ .Content }}
+        {{ .description | markdownify }}
     </div>
 </div>
+{{ end }}
