@@ -55,10 +55,31 @@
     #cvrole {
         font-style: italic;
     }
+
+    .logo {
+        position: absolute;
+        top: -5px;
+        left: -100px;
+        z-index: 10;
+        width: 75px;
+    }
+    .logo img {
+        width: 100%;
+        margin: 0;
+    }
 </style>
 
 {{ if not .hide }}
+
 <div class="container">
+    
+    {{ if .logo }}
+    <div style="position: relative; width: 0; height: 0">
+    <div class="logo">
+        <img src="{{ .logo }}" >
+    </div>
+    </div>
+    {{ end }}
     <div class="left-div">
         <div>
         <p id="cvcompany">
@@ -75,5 +96,6 @@
     <div class="third-div">
         {{ .description | markdownify }}
     </div>
+    
 </div>
 {{ end }}

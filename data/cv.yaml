@@ -6,6 +6,7 @@ education:
             role: Master's degree, Mathematics
             date: Oct 2021 -- June 2022
             location: Cambridge, UK
+            logo: /logo/cambridge.png
             url: https://www.trin.cam.ac.uk/
             description: |
                 Probability, Stochastic Processes, Information theory and Statistics.
@@ -17,6 +18,7 @@ education:
             role: Bachelor's degree, Natural Sciences
             date: Oct 2018 -- June 2021
             location: Cambridge, UK
+            logo: /logo/trinity-color.svg
             url: https://www.trin.cam.ac.uk/
             description: |
                 *Major*: Theoretical physics,
@@ -30,8 +32,9 @@ experience:
     enabled: true
     list:
         -   
-            hide: true
+            hide: false
             name: 'Max Planck Institute for the Physics of Complex Systems'
+            logo: /logo/pks.jpeg
             date: November 2022 -- *present*
             role: 'Graduate student'
             url: https://www.pks.mpg.de
@@ -45,6 +48,7 @@ experience:
         
         -
             name: 'Max Plank Institute for Dynamics and Self-Organization'
+            logo: /logo/mpi-ds.svg
             date: Jun 2021 -- Sep 2021
             role: Research Internship
             url: https://www.ds.mpg.de/lmp
@@ -55,8 +59,9 @@ experience:
                 supervisor [Dr. Benoît Mahault](https://www.ds.mpg.de/3763657/dr-benoit-mahault)
         -
             name: Alikhanyan National Laboratory  (YerPhi)
-            date: 'Jun 2020 -- June 2022'
-            role: 'Researcher'
+            date: Jun 2020 -- June 2022
+            logo: /logo/aanl.png
+            role: Researcher
             url: 'https://www.yerphi.am/?lang=en'
             location: 'Yerevan, Armenia'
             description: |
@@ -68,6 +73,7 @@ experience:
         
         -
             name: YerevaNN research lab
+            logo: /logo/yerevann.svg
             url: https://yerevann.com/
             date: Jul 2019 -- Sep 2019
             location: Yerevan, Armenia
@@ -82,6 +88,7 @@ experience:
         -
             name: HiLearn
             date: Sep 2017 -- Aug 2018
+            logo: /logo/hilearn.png
             location: Yerevan, Armenia
             role: Machine Learning Scientist
             description: |
@@ -91,6 +98,7 @@ experience:
         
         - 
             name: Armenian Code Academy
+            logo: /logo/aca.jpg
             location: Yerevan, Armenia
             role: Machine Learning Internship
             date: Mar 2017 -- Aug 2017
@@ -102,6 +110,7 @@ experience:
 
         -            
             name: Physics teacher at "Quantum" College
+            logo: /logo/qvant.png
             role: Physics club for students
             date: Sep 2016 -- Jun 2018
             location: Yerevan, Armenia
