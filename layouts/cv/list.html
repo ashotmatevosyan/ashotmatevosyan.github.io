@@ -69,6 +69,24 @@
 
 <h2 style="border-bottom:none; padding-bottom:10px"> <a href="/contact"><strong>Contact me</strong></a></h2>
 
+
+
+
+{{/*  EXPERTIZE   */}}
+{{ $expertise := .Site.Data.cv.expertise }}
+{{ if $expertise.enabled }}
+<div class="expertise">
+  <h2> Areas of Expertise </h2>
+  <ul>
+  {{ range $expertise.list }}
+    <li>{{ . | markdownify}}</li>
+  {{ end }}
+  </ul>
+</div>
+{{ end }}
+
+
+
 <div class="education">
 
 {{/*  EDUCATION   */}}
@@ -102,10 +120,30 @@
   <h2> Publications </h2>
   <ul>
   {{ range $publications }}
-    <li>{{ .content | markdownify}}</li>
+    <li><a href="{{.url}}" target="_blank">{{ .authors | markdownify}}, "{{ .title | markdownify}}." {{ .journal | markdownify}}.</a></li>
   {{ end }}
   </ul>
 </div>
+
+
+{{/*  CONFERENCES   */}}
+{{ $conferences := .Site.Data.cv.conferences }}
+{{ if $conferences.enabled }}
+<div class="conferences">
+  <h2> Conferences </h2>
+  <ul>
+  {{ range $conferences.list }}
+    <li>
+      <div style="display: flex; justify-content: space-between;">
+        <div><a href="{{.url}}" target="_blank"><strong>{{ .name | markdownify}}</strong></a>, {{.location}}</div>
+        <div>{{ .date | markdownify}}</div>
+      </div>
+    </li>
+  {{ end }}
+  </ul>
+</div>
+{{ end }}
+
 
 {{/*  AWARDS   */}}
 {{ $awards := .Site.Data.cv.awards }}
