@@ -5,7 +5,7 @@ author: 'ashot'
 ---
 
 
-Greetings! I'm Ashot, a driven young scientist from Yerevan, Armenia, currently pursuing my PhD in nonequilibrium statistical mechanics, focusing on its applications in biology.
+Greetings! I'm Ashot, a driven young scientist from Yerevan, Armenia, currently pursuing my PhD in nonequilibrium statistical mechanics, focusing on its applications in biology. My academic journey began with studying Natural Sciences and Mathematics at the University of Cambridge, Trinity College, where I developed a strong foundation in these disciplines.
 
 Beyond research, I find joy in exploring the natural world through hiking, swimming, and capturing moments of beauty along my journey. You can catch glimpses of these picturesque locales in my [photogallery](gallery).
 
