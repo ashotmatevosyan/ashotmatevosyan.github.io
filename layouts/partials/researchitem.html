@@ -1,0 +1,75 @@
+
+<style>
+    .featured-picture {
+        float: left;
+        margin-right: 20px;
+        margin-bottom: 10px;
+        margin-top:10px;
+        width: 30%;
+        min-width: 150px;
+    }
+    .container img, .container video {
+        max-width: 100%;
+        height: auto;
+        margin:0;
+        
+    }
+    .container p {
+        margin-top:0;
+    }
+    .container a {
+        position: relative;
+        z-index:2;
+    }
+    .container {
+        overflow: hidden; /* To clear floats */
+        flex: 2;
+        text-align: justify; /* Justify the text */
+
+    }
+    .links a{
+        font-size:1.2rem ;
+        margin-left:25px;
+    }
+    .links {
+        width:100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+
+    }
+    .text-custom {
+        font-size: 1.4rem;
+    }
+    @media (max-width: 600px) {
+        .featured-picture {
+            float: none;
+            margin: 0 auto 0 auto;
+            display: block;
+            width: 80%;
+            max-width: 200px;
+        }
+    }
+</style>
+<h1 class="mb-2 mt-3 font-bold text-custom">{{ .Title }}</h1>
+<div class="container">
+
+    <div class="featured-picture">
+        {{ .Params.featured | safeHTML}}
+    </div>
+    {{ .Params.intro | markdownify }}
+    <div class="links">
+    {{ if .Params.journal }}
+        <a href="{{.Params.journal}}" target="_blank">Publication</a>
+    {{end}}
+    {{ if .Params.arxiv }}
+        <a href="{{.Params.arxiv}}" target="_blank">arXiv</a>
+    {{end}}
+    {{ if .Params.pdf }}
+        <a href="{{ .Params.pdf }}" target="_blank">pdf</a>
+    {{end}}
+    {{ if .Params.medium }}
+        <a href="{{ .Params.medium }}" target="_blank">Medium article</a>
+    {{end}}
+    </div>
+</div>

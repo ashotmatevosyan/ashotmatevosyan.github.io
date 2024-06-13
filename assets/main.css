@@ -1066,10 +1066,10 @@ body {
   margin-bottom: 0;
 }
 
-.prose :where(video):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+/* .prose :where(video):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   margin-top: 2em;
   margin-bottom: 2em;
-}
+} */
 
 .prose :where(li):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   margin-top: 0.5em;
@@ -1852,7 +1852,9 @@ body {
 article {
   font-size: 1.125rem;
   line-height: 1.75rem;
-  line-height: 1.8;
+  line-height: 1.5;
+  text-align: justify;
+  text-justify: inter-word;
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }

@@ -103,3 +103,25 @@ body {
   color: var(--tw-prose-links-hover);
     /* color: rgb(0, 0, 242); */
 }
+
+
+article .media-container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+article .media-container img {
+  margin: auto;
+}
+
+article .media-container .caption {
+  width: 90%;
+  font-size: smaller;
+  margin: auto;
+  line-height: 1.2;
+  margin-top: 5px;
+}
+
+article h1 {
+  text-align: left;
+}
+
