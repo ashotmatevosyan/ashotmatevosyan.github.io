@@ -7,6 +7,8 @@ title = 'Ashot Matevosyan'
 copyright = "Copyright © 2008–2019, Steve Francia and the lee.so; all rights reserved."
 enableInlineShortcodes = true
 
+paginate = 10
+paginatePath = 'page'
 
 [params]
   color = 'light' # linen, wheat, gray, light
@@ -31,6 +33,7 @@ enableInlineShortcodes = true
   
   comments = false                            # disable comments for a specific page
 
+  
 [menu]
 
   [[menu.main]]
