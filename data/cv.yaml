@@ -172,7 +172,7 @@ awards:
             **Trinity International Bursaries**, 2018, Cambridge, UK \
             full scolarship for studying in Cambridge
         - |
-            **ACM-ICPC 2016**, *participation*, Tbilisi, Georgia
+            **ACM-ICPC NEERC Regional 2016**, *Finalist*, Tbilisi, Georgia
         - |
             **International Physics Olympiad**, *Silver medal*, 2016, Zurich, Switzerland
         - |
@@ -200,7 +200,7 @@ languages:
             name: Russian
         - 
             flag: /de.svg
-            name: German (A1)
+            name: German (A2)
 
 computerskils:
     enabled: true
