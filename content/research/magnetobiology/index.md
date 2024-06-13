@@ -3,8 +3,8 @@ title: 'Nonequilibrium, weak-field-induced cyclotron motion: A mechanism for mag
 date: 2024-06-13
 weight: 2
 
-journal: https://journals.aps.org/pre/abstract/10.1103/PhysRevE.107.014125
-arxiv: https://arxiv.org/abs/2202.13160
+journal: https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.064407
+arxiv: https://arxiv.org/abs/2102.00481
 pdf: magnetobiology/MagnetoBiology.pdf
 
 featured: >
