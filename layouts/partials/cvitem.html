@@ -1,5 +1,5 @@
 <style>
-    .container  p, .container ul, .container li  {
+    .container  p, .container ul, .third-div li  {
         margin: 0px;
     }
     .container {
@@ -90,7 +90,6 @@
 {{ if not .hide }}
 
 <div class="container">
-    
     {{ if .logo }}
     <div style="position: relative; width: 100%; height: 0">
     <div class="logo">
@@ -100,6 +99,7 @@
     </div>
     </div>
     {{ end }}
+    {{ if .name }}
     <div class="left-div">
         <div>
         <p id="cvcompany">
@@ -109,13 +109,24 @@
         <p id="cvrole">{{ .role }}</p>
         </div>
     </div>
+    {{ end }}
+    {{ if .date }}
     <div class="right-div">
         <p>{{.date | markdownify}}</p>
         <p>{{.location }}</p>
     </div>
+    {{ end }}
+    {{ if .description }}
     <div class="third-div">
         {{ .description | markdownify }}
     </div>
-    
+    {{  end }}
+    {{ if .list }}
+        <ul>
+            {{ range .list }}
+            <li>{{ . | markdownify}}</li>
+            {{ end }}
+        </ul>
+    {{ end }}
 </div>
 {{ end }}

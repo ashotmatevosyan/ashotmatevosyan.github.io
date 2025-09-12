@@ -71,23 +71,19 @@
 
 
 
-
 {{/*  EXPERTIZE   */}}
 {{ $expertise := .Site.Data.cv.expertise }}
 {{ if $expertise.enabled }}
 <div class="expertise">
-  <h2> Areas of Expertise </h2>
-  <ul>
-  {{ range $expertise.list }}
-    <li>{{ . | markdownify}}</li>
-  {{ end }}
-  </ul>
+<h2> Areas of Expertise </h2>
+
+{{ partial "cvitem.html" $expertise.default }}
+
 </div>
-{{ end }}
+{{end}}
 
 
 
-<div class="education">
 
 {{/*  EDUCATION   */}}
 {{ $educations := .Site.Data.cv.education }}

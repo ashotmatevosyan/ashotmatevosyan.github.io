@@ -1,11 +1,13 @@
-
 expertise:
     enabled: true
-    list:
-        - '**Mathematics:** probability, stochastic processes, statistics, analysis, optimization,'
-        - '**Physics:** non-equilibrium statistical mechanics, biological physics, physical chemistry,'
-        - '**Computer science:** machine learning, algorithms, data structures, molecular dynamics,'
-        - '**Software engineering:** high performance/scientific computing, parallelization.'
+    default:
+        logo: /trchnatar.svg
+        url: ''
+        list:
+            - '**Mathematics:** probability, stochastic processes, statistics, analysis, optimization,'
+            - '**Physics:** non-equilibrium statistical mechanics, biological physics, physical chemistry,'
+            - '**Computer science:** machine learning, algorithms, data structures, molecular dynamics,'
+            - '**Software engineering:** high performance/scientific computing, parallelization.'
 
 
 
@@ -200,7 +202,7 @@ languages:
             name: Russian
         - 
             flag: /de.svg
-            name: German (A2)
+            name: German (B1)
 
 computerskils:
     enabled: true
