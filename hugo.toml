@@ -7,8 +7,9 @@ title = 'Ashot Matevosyan'
 copyright = "Copyright © 2008–2019, Steve Francia and the lee.so; all rights reserved."
 enableInlineShortcodes = true
 
-paginate = 10
-paginatePath = 'page'
+pagination.pagerSize = 10
+pagination.path = 'page'
+
 
 [params]
   color = 'light' # linen, wheat, gray, light
@@ -32,6 +33,7 @@ paginatePath = 'page'
   math = true                               # enable KaTeX math typesetting globally
   
   comments = false                            # disable comments for a specific page
+  DisqusShortname = false
 
   
 [menu]

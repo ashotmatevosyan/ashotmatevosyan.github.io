@@ -121,7 +121,7 @@
   <ul>
   {{ range $publications }}
     <li>
-      <a href="{{.url}}" target="_blank">{{ .authors | markdownify}}, "{{ .title | markdownify}}." {{ .journal | markdownify}}.</a>
+      <a href="{{ if .url }}{{.url}}{{ else }}{{.arxiv}}{{ end }}" target="_blank">{{ .authors | markdownify}}, "{{ .title | markdownify}}." {{ .journal | markdownify}}.</a>
       <a href="{{.arxiv}}" target="_blank"> (Arxiv)</a>
     </li>
   {{ end }}
