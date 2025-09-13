@@ -7,7 +7,7 @@ title = 'Ashot Matevosyan'
 copyright = "Copyright © 2008–2019, Steve Francia and the lee.so; all rights reserved."
 enableInlineShortcodes = true
 
-pagination.pagerSize = 10
+pagination.pagerSize = 5
 pagination.path = 'page'
 
 

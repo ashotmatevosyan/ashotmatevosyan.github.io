@@ -57,7 +57,15 @@
 <div class="container">
 
     <div class="featured-picture">
-        {{ .Params.featured | safeHTML}}
+      {{$featured := .Params.featured}}
+      {{ $ext := lower (path.Ext $featured) }}
+      {{ with .Resources.Get $featured  }}
+        {{ if in (slice ".jpg" ".jpeg" ".png"  ".webp" ".gif") $ext }}
+            <img src="{{ .RelPermalink | relURL }}" alt="">
+        {{ else if in (slice ".svg") $ext }}
+            <img src="{{ .RelPermalink | relURL }}" alt="">
+        {{ end }}
+      {{ end }}
     </div>
     {{ .Params.intro | markdownify }}
     <div class="links">
