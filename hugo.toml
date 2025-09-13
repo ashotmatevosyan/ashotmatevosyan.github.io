@@ -1,4 +1,4 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://ashotmatevosyan.github.io/'
 languageCode = 'en-us'
 title = 'Ashot Matevosyan'
 
@@ -74,3 +74,13 @@ defaultContentLanguage = "en"
     languageName = "Armenian"
     weight = 2
     title = "Աշոտ Մաթևոսյան"
+
+
+# hugo.toml
+[sitemap]
+  changefreq = "weekly"
+  priority   = 0.5
+  filename   = "sitemap.xml"
+
+
+enableRobotsTXT = true
