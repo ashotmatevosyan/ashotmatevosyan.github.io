@@ -1,0 +1,128 @@
+{{ define "main" }}
+
+<div class="gallery-page not-prose">
+  <h1 class="gallery-title">{{ .Title }}</h1>
+
+  <div class="gallery-masonry">
+    {{ $images := .Resources.Match "images/*" }}
+    {{ $meta := site.Data.gallery }}
+    {{ range $index, $img := $images }}
+    {{ $key := path.Base $img.Name }}
+    {{ $info := index $meta $key }}
+    <div class="gallery-item" style="animation-delay: {{ mul $index 60 }}ms">
+      <img
+        src="{{ $img.RelPermalink }}"
+        alt="{{ with $info }}{{ .description }}{{ end }}"
+        loading="lazy"
+        data-index="{{ $index }}"
+        {{ with $info }}
+        {{ with .location }}data-location="{{ . }}"{{ end }}
+        {{ with .description }}data-description="{{ . }}"{{ end }}
+        {{ with .date }}data-date="{{ . }}"{{ end }}
+        {{ end }}
+        onclick="openLightbox(this)"
+      />
+      {{ with $info }}
+      {{ if or .location .description .date }}
+      <div class="gallery-overlay">
+        {{ with .description }}<span class="gallery-meta-desc">{{ . }}</span>{{ end }}
+        {{ if or .location .date }}
+        <span class="gallery-meta-sub">
+          {{- with .location }}{{ . }}{{ end -}}
+          {{- if and .location .date }} · {{ end -}}
+          {{- with .date }}{{ . }}{{ end -}}
+        </span>
+        {{ end }}
+      </div>
+      {{ end }}
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+</div>
+
+<div id="gallery-lightbox" class="gallery-lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" aria-label="Close">&times;</button>
+  <button class="lightbox-nav lightbox-prev" onclick="navigateLightbox(event, -1)" aria-label="Previous">&#8249;</button>
+  <button class="lightbox-nav lightbox-next" onclick="navigateLightbox(event, 1)" aria-label="Next">&#8250;</button>
+  <div class="lightbox-content">
+    <div class="lightbox-img-wrap">
+      <img id="lightbox-img" src="" alt="" />
+    </div>
+    <div class="lightbox-info" id="lightbox-info"></div>
+  </div>
+</div>
+
+<script>
+(function() {
+  var lightbox = document.getElementById('gallery-lightbox');
+  var lbImg = document.getElementById('lightbox-img');
+  var lbInfo = document.getElementById('lightbox-info');
+  var items = document.querySelectorAll('.gallery-item img');
+  var idx = 0;
+  var touchStartX = 0;
+
+  function updateInfo(img) {
+    var parts = [];
+    var desc = img.dataset.description;
+    var loc = img.dataset.location;
+    var date = img.dataset.date;
+    if (desc) parts.push('<span class="lb-info-desc">' + desc + '</span>');
+    var sub = [];
+    if (loc) sub.push(loc);
+    if (date) sub.push(date);
+    if (sub.length) parts.push('<span class="lb-info-sub">' + sub.join(' \u00b7 ') + '</span>');
+    lbInfo.innerHTML = parts.join('');
+    lbInfo.style.display = parts.length ? '' : 'none';
+  }
+
+  window.openLightbox = function(img) {
+    idx = parseInt(img.dataset.index, 10);
+    lbImg.src = img.src;
+    updateInfo(img);
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  };
+
+  window.closeLightbox = function(e) {
+    if (e.target === lightbox || e.target.classList.contains('lightbox-close')) {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  };
+
+  window.navigateLightbox = function(e, dir) {
+    e.stopPropagation();
+    idx = (idx + dir + items.length) % items.length;
+    lbImg.classList.add('lightbox-fade');
+    setTimeout(function() {
+      lbImg.src = items[idx].src;
+      updateInfo(items[idx]);
+      lbImg.classList.remove('lightbox-fade');
+    }, 150);
+  };
+
+  document.addEventListener('keydown', function(e) {
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'Escape') {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    if (e.key === 'ArrowLeft') navigateLightbox(e, -1);
+    if (e.key === 'ArrowRight') navigateLightbox(e, 1);
+  });
+
+  lightbox.addEventListener('touchstart', function(e) {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  lightbox.addEventListener('touchend', function(e) {
+    var diff = e.changedTouches[0].screenX - touchStartX;
+    if (Math.abs(diff) > 50) {
+      navigateLightbox(e, diff > 0 ? -1 : 1);
+    }
+  }, { passive: true });
+})();
+</script>
+
+{{ end }}
