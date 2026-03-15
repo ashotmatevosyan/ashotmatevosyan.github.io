@@ -1864,15 +1864,21 @@ article {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-article blockquote {
-  border-left-width: 3px !important;
-  --tw-border-opacity: 1 !important;
-  border-color: rgb(0 0 0 / var(--tw-border-opacity)) !important;
-}
 
+/* Pull quotes */
+article blockquote {
+  border-left: 4px solid #b33a2b;
+  margin: 40px 0;
+  padding: 12px 12px 12px 28px;
+  font-size: 22px;
+  font-style: italic;
+  color: #333;
+  line-height: 1.5;
+  background-color: rgba(255, 140, 50, 0.06);
+}
 :is(:where(.dark) article blockquote) {
-  --tw-border-opacity: 1 !important;
-  border-color: rgb(255 255 255 / var(--tw-border-opacity)) !important;
+  color: #ccc;
+  background-color: rgba(255, 140, 50, 0.1);
 }
 
 article code {

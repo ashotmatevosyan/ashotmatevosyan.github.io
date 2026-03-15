@@ -24,6 +24,7 @@ pagination.path = 'page'
   bio = ' '
   # bio = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum is simply dummy text of the printing and typesetting industry'
   description = "Ashot Matevosyan's homepage"
+  tagline = "PhD student in Nonequilibrium Statistical Mechanics at MPI-PKS, Dresden"
 
 
   # misc

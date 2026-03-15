@@ -73,8 +73,16 @@
         width: 80%;
         margin-right: auto;
         margin-top:0;
-        object-fit: cover; /* Ensures the image covers the container */
-
+        object-fit: cover;
+    }
+    .logo img.logo-dark {
+        display: none;
+    }
+    .dark .logo img.logo-light {
+        display: none;
+    }
+    .dark .logo img.logo-dark {
+        display: block;
     }
 
     @media (max-width: 650px) {
@@ -94,7 +102,12 @@
     <div style="position: relative; width: 100%; height: 0">
     <div class="logo">
         {{if .url }}<a href="{{.url}}" target="_blank">{{end}}
-            <img src="{{ .logo }}" >
+            {{ if .logo_dark }}
+            <img src="{{ .logo }}" class="logo-light">
+            <img src="{{ .logo_dark }}" class="logo-dark">
+            {{ else }}
+            <img src="{{ .logo }}">
+            {{ end }}
         {{if .url }}</a>{{end}}
     </div>
     </div>
@@ -106,15 +119,19 @@
             {{if .url }}<a href="{{.url}}" class="cvitem-head-link" target="_blank">{{end}}
                 <strong>{{ .name }}</strong>
             {{if .url }}</a>{{end}}</p>
-        <p id="cvrole">{{ .role }}</p>
+        <p id="cvrole">{{ .role | markdownify}}</p>
         </div>
     </div>
     {{ end }}
-    {{ if .date }}
+    {{ if or .location .date }}
     <div class="right-div">
+        {{ if .date }}
         <p>{{.date | markdownify}}</p>
+        {{ end }}
+        {{ if .location }}
         <p>{{.location }}</p>
-    </div>
+        {{ end }}
+    </div>  
     {{ end }}
     {{ if .description }}
     <div class="third-div">

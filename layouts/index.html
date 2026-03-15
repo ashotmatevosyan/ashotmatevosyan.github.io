@@ -1,62 +1,111 @@
 {{ define "main" }}
 <style>
+@keyframes heroFadeIn {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+#hero {
+    animation: heroFadeIn 0.6s ease both;
+}
+
 #biocontainer {
     display: flex;
+    align-items: flex-start;
 }
+
 #biotext {
     flex: 1;
     padding: 6px;
-    text-align: justify; /* Justify text */
+    text-align: justify;
 }
 
 #biotext p {
-    margin-top: 0em;
-    margin-top: 0em;
+    margin-top: 0;
 }
 
 #profileimage {
-    max-width: 200px;
-    flex: 1;
+    max-width: 220px;
+    flex-shrink: 0;
     padding: 5px;
-    padding-right: 20px;
+    padding-right: 24px;
     padding-bottom: 20px;
-    /*overflow: hidden; /* Ensure the rounded image stays within its container */
 }
+
 #profilepic {
-    flex: none;
     max-width: 100%;
     height: auto;
     border-radius: 50%;
-    margin-top: 0em;
-    margin-bottom: 0em;
+    margin: 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.10);
+    transition: box-shadow 0.3s ease;
 }
+#profilepic:hover {
+    box-shadow: 0 6px 28px rgba(0, 0, 0, 0.16);
+}
+
+.hero-heading {
+    margin-bottom: 1.2rem;
+}
+.hero-heading h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 0 0.2rem;
+    line-height: 1.2;
+}
+.hero-heading .tagline {
+    font-size: 1rem;
+    color: #666;
+    margin: 0;
+    font-weight: 400;
+}
+.dark .hero-heading .tagline {
+    color: #999;
+}
+
 
 @media (max-width: 768px) {
     #biocontainer {
         flex-direction: column;
+        align-items: center;
     }
-    #profileimage, #biotext {
-        flex: none;
+    #profileimage {
+        max-width: 180px;
+        padding-right: 5px;
+        padding-bottom: 12px;
+    }
+    #biotext {
         width: 100%;
+    }
+    .hero-heading {
+        text-align: center;
     }
 }
 
 #biotext[lang="am"] {
     font-family: 'Mariam', sans-serif;
 }
-
+#biotext[lang="am"] .hero-heading h1 {
+    font-family: 'Mariam', sans-serif;
+}
 </style>
 
-
-
-    
-<div id="biocontainer">
-    <div id="profileimage">
-        <img id="profilepic" src="/profile.jpg" alt="Your Image">
+<div id="hero">
+    <div id="biocontainer">
+        <div id="profileimage">
+            <img id="profilepic" src="/profile.jpg" alt="{{ site.Title }}">
+        </div>
+        <div id="biotext" lang="{{ .Lang }}">
+            <div class="hero-heading">
+                <h1>{{ site.Title }}</h1>
+                {{ with site.Params.tagline }}
+                    <p class="tagline">{{ . }}</p>
+                {{ end }}
+            </div>
+            {{ .Content }}
+        </div>
     </div>
-    <div id="biotext" lang="{{ .Lang }}">
-        {{ .Content }}
-    </div>
+
 </div>
 
 {{ end }}

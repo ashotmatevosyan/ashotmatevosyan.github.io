@@ -33,7 +33,9 @@
   <!---->
   {{ $custom := resources.Get "custom.css" }}
   <!---->
-  {{ $css := slice $main $custom | resources.Concat "main.css" | minify }}
+  {{ $gallery := resources.Get "gallery.css" }}
+  <!---->
+  {{ $css := slice $main $custom $gallery | resources.Concat "main.css" | minify }}
   <link rel="preload stylesheet" as="style" href="{{ $css.Permalink }}" />
 
   <!-- Dark Icon -->

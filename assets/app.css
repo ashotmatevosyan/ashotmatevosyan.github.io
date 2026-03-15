@@ -75,9 +75,6 @@
     @apply text-lg leading-[1.8] text-black dark:text-white;
   }
 
-  article blockquote {
-    @apply !border-l-[3px] !border-black dark:!border-white;
-  }
 
   article code {
     @apply inline-block !text-sm !leading-6;

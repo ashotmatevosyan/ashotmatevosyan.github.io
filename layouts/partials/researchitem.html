@@ -59,16 +59,25 @@
     <div class="featured-picture">
       {{$featured := .Params.featured}}
       {{ $ext := lower (path.Ext $featured) }}
+      {{ if in (slice ".xml" ".txt" ".html") $ext }}
+        <iframe src="{{ $featured }}" frameborder="0" 
+        style="width:100%; height:100%;"></iframe>
+      {{ end }}
       {{ with .Resources.Get $featured  }}
         {{ if in (slice ".jpg" ".jpeg" ".png"  ".webp" ".gif") $ext }}
             <img src="{{ .RelPermalink | relURL }}" alt="">
         {{ else if in (slice ".svg") $ext }}
             <img src="{{ .RelPermalink | relURL }}" alt="">
+        {{ else if in (slice ".other") $ext }}
+           
         {{ end }}
       {{ end }}
     </div>
     {{ .Params.intro | markdownify }}
     <div class="links">
+    {{ with .Params.authors }}
+        <span style="font-size:1rem; opacity:0.7; margin-right:auto;">{{ . }}</span>
+    {{ end }}
     {{ if .Params.journal }}
         <a href="{{.Params.journal}}" target="_blank">Publication</a>
     {{end}}
