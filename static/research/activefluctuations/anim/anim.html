@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Frames</title>
+    <style>
+      :root {
+        /* ===== Crop + positioning (edit these in HTML/CSS, not JS) ===== */
+        /* Fill the iframe/window */
+        --crop-w: 100vw;
+        --crop-h: 100vh;
+        --scale: 1.5;
+        --pan-x: 10px;
+        --pan-y: 5px;
+
+        /* computed to fit crop to window width */
+        --fit-scale: 1;
+      }
+
+      html,
+      body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        background: #ffffff;
+        overflow: hidden;
+      }
+
+      .crop {
+        width: var(--crop-w);
+        height: var(--crop-h);
+        background: #ffffff;
+        overflow: hidden;
+        position: fixed;
+        left: 0;
+        top: 0;
+        transform-origin: top left;
+        transform: scale(var(--fit-scale));
+        /* border: 2px dashed rgba(255, 0, 0, 0.85); debug */
+        /* box-sizing: border-box; */
+      }
+      #frame {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        background: transparent;
+        position: absolute;
+        inset: 0;
+        transform: translate(var(--pan-x), var(--pan-y)) scale(var(--scale));
+        transform-origin: center;
+        user-select: none;
+        -webkit-user-drag: none;
+        outline: 1px solid rgba(0, 128, 255, 0.55); /* debug */
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div id="crop" class="crop">
+      
+      <img id="frame" />
+    </div>
+    
+    <script>
+      // ===== Config (edit these) =====
+      const CONFIG = {
+        // Timing (ms)
+        minDelay: 450,
+        maxDelay: 450,
+
+        // Groups (frame numbers, inclusive)
+        group1: { from: 1, to: 6 }, // 01..06
+        group2: { from: 7, to: 11 }, // 07..11 (change to 6..11 if you want)
+      };
+
+      const pad2 = (n) => String(n).padStart(2, "0");
+      const frameSrc = (n) => `frames/frame-${pad2(n)}.svg`;
+
+      const crop = document.getElementById("crop");
+      const img = document.getElementById("frame");
+
+      function rangeFrames(from, to) {
+        const a = [];
+        for (let n = from; n <= to; n++) a.push(frameSrc(n));
+        return a;
+      }
+
+      const group1 = rangeFrames(CONFIG.group1.from, CONFIG.group1.to);
+      const group2 = rangeFrames(CONFIG.group2.from, CONFIG.group2.to);
+
+      // Preload for smoother swapping
+      [...new Set([...group1, ...group2])].forEach((src) => {
+        const i = new Image();
+        i.src = src;
+      });
+
+      const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
+      const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+
+      let timer = null;
+      let groupIdx = 0; // 0 => group1, 1 => group2
+
+      function getDelayMs() {
+        const min = Number(CONFIG.minDelay || 0);
+        const max = Number(CONFIG.maxDelay || 0);
+        const lo = Math.min(min, max);
+        const hi = Math.max(min, max);
+        const r = lo + Math.random() * (hi - lo);
+        return clamp(Math.round(r), 0, 60_000);
+      }
+
+      function step() {
+        const group = groupIdx === 0 ? group1 : group2;
+        const chosen = pick(group);
+
+        img.src = chosen;
+
+        // After the delay, switch to the other group
+        groupIdx = 1 - groupIdx;
+
+        timer = setTimeout(step, getDelayMs());
+      }
+
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+          if (timer) clearTimeout(timer);
+          timer = null;
+        } else if (!timer) {
+          step();
+        }
+      });
+
+      // Fit the (CSS-defined) crop box to the window width.
+      // Does not change crop/pan/zoom variables; it only scales the final result.
+      function applyFitScale() {
+        const cs = getComputedStyle(crop);
+        const cropWidthPx = parseFloat(cs.width) || 1;
+        const cropHeightPx = parseFloat(cs.height) || 1;
+
+        // Use the limiting dimension so the full crop fits inside the viewport
+        // (important inside an iframe where height can be smaller than width).
+        const s = clamp(
+          Math.min(window.innerWidth / cropWidthPx, window.innerHeight / cropHeightPx),
+          0.05,
+          50
+        );
+        document.documentElement.style.setProperty("--fit-scale", String(s));
+      }
+      window.addEventListener("resize", applyFitScale, { passive: true });
+      applyFitScale();
+
+      step();
+    </script>
+  </body>
+</html>
+
