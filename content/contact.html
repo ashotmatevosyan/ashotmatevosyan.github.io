@@ -4,38 +4,58 @@ description = "My contact details"
 date = "2024-04-30"
 author = "Ashot Matevosyan"
 +++
-<style>
-    .container {
-        display: flex;
-        align-items: center;
-        padding-bottom: 5px;
-      }
-      .logo {
-        display:inline;
-        width: 40px; /* Adjust size as needed */
-        height: auto; /* Maintain aspect ratio */
-        margin:0px;
-        margin-right: 15px; /* Adjust spacing */
-        vertical-align: middle; /* Align the image vertically */
-        filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-      }
-      .container {
-        text-decoration: none;
-      }
-  </style>
 
-  <div class="container ">
-    <a href="mailto:matevos.ashot@gmail.com">
-        <img src="/email.svg" class="logo dark:invert"><span class="text">matevos.ashot@gmail.com</span>
-      </a>
+<div class="contact-page">
+
+  <p class="contact-intro">
+    Interested in collaboration, have a question about my research, or just want to say hello? I'd love to hear from you.
+  </p>
+
+  <div class="contact-grid">
+
+    <a href="mailto:matevos.ashot@gmail.com" class="contact-card">
+      <div class="contact-card-icon">
+        <img src="/email.svg" alt="Email" class="dark:invert">
+      </div>
+      <div class="contact-card-body">
+        <h3>Email</h3>
+        <span>matevos.ashot@gmail.com</span>
+      </div>
+      <span class="contact-card-arrow">&rarr;</span>
+    </a>
+
+    <a href="https://linkedin.com/in/matevosashot" class="contact-card" target="_blank" rel="noopener">
+      <div class="contact-card-icon">
+        <img src="/linkedin.svg" alt="LinkedIn" class="dark:invert">
+      </div>
+      <div class="contact-card-body">
+        <h3>LinkedIn</h3>
+        <span>matevosashot</span>
+      </div>
+      <span class="contact-card-arrow">&rarr;</span>
+    </a>
+
+    <a href="https://github.com/matevosashot" class="contact-card" target="_blank" rel="noopener">
+      <div class="contact-card-icon">
+        <img src="/github.svg" alt="GitHub" class="dark:invert">
+      </div>
+      <div class="contact-card-body">
+        <h3>GitHub</h3>
+        <span>matevosashot</span>
+      </div>
+      <span class="contact-card-arrow">&rarr;</span>
+    </a>
+
+    <a href="https://scholar.google.com/citations?user=t6St-HsAAAAJ" class="contact-card" target="_blank" rel="noopener">
+      <div class="contact-card-icon">
+        <img src="/scholar.svg" alt="Google Scholar" class="dark:invert">
+      </div>
+      <div class="contact-card-body">
+        <h3>Google Scholar</h3>
+        <span>Publications & Citations</span>
+      </div>
+      <span class="contact-card-arrow">&rarr;</span>
+    </a>
+
   </div>
-  <div class="container">
-    <a href="https://linkedin.com/in/matevosashot">
-        <img src="/linkedin.svg"  class="logo dark:invert"><span class="text">linkedin.com/in/matevosashot</span>
-      </a>
-  </div>
-  <div class="container">
-    <a href="https://github.com/matevosashot">
-        <img src="/github.svg" class="logo dark:invert"><span class="text">github.com/matevosashot</span>
-      </a>
-  </div>
+</div>
