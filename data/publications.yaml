@@ -1,5 +1,12 @@
 - 
   content: |
+    [**Matevosyan Ashot**, Frank Jülicher, and Ricard Alert. "Nonequilibrium noise emerging from broken detailed balance in active gels." arXiv preprint arXiv:2601.20483 (2026).](aa)
+  authors: '**Ashot Matevosyan**, Frank Jülicher, and Ricard Alert'
+  title: 'Nonequilibrium noise emerging from broken detailed balance in active gels'
+  journal: 'arXiv preprint arXiv:2601.20483 (2026)'
+  arxiv: https://arxiv.org/abs/2601.20483
+- 
+  content: |
     [**Matevosyan Ashot**, and Armen E. Allahverdyan. "System-Bath Approach to Rotational Brownian Motion." arXiv preprint arXiv:2507.03202 (2025).](aa)
   authors: '**Ashot Matevosyan** and Armen E. Allahverdyan'
   title: 'System-Bath Approach to Rotational Brownian Motion'

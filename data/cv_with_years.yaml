@@ -16,25 +16,29 @@ education:
     list:
         master:
             name: Cambridge, Trinity College
-            role: Master's degree, **Distinction**, Mathematics
-            date: 2022
+            role: Master's degree, Mathematics
+            date: Oct 2021 -- June 2022
             location: Cambridge, UK
             logo: /logo/cambridge.png
             url: https://www.trin.cam.ac.uk/
             description: |
                 Probability, Stochastic Processes, Information theory and Statistics.
  
+                **Distinction** from Part III exams (GPA 4.0/4.0 equivalent).
 
         undergrad:
             name: Cambridge, Trinity College
-            role: Bachelor's degree, **First Class**, Natural Sciences
-            date: 2021
+            role: Bachelor's degree, Natural Sciences
+            date: Oct 2018 -- June 2021
             location: Cambridge, UK
             logo: /logo/trinity-color.svg
             url: https://www.trin.cam.ac.uk/
             description: |
-                Theoretical physics, Physical Chemistry, Biology of Cells,
+                *Major*: Theoretical physics,
 
+                *Minor*: Mathematics, Physical Chemistry, Biology of Cells,
+
+                **First Class** from Tripos examinations (GPA 4.0/4.0 equivalent).
 
 
 experience:
@@ -43,29 +47,22 @@ experience:
         -   
             hide: false
             name: 'Max Planck Institute for the Physics of Complex Systems'
-            logo: /logo/pks.svg
-            logo_dark: /logo/pks_dark.svg
-            role: 'Graduate student, PhD supervisor [Dr. Ricard Alert](https://ricardalertzenon.wixsite.com/ricardalertzenon)'
+            logo: /logo/pks.jpeg
+            date: Nov 2022 -- *present*
+            role: 'Graduate student'
             url: https://www.pks.mpg.de
             location: 'Dresden, Germany'
             description: |
                 * Non-equilibrium statistical mechanics, Stochastic processes
-            
-                * Biological physics, Theory and Simulations
-        - 
-            hide: false
-            name: 'Krisp'
-            url: https://krisp.ai/
-            logo: /logo/krisp/Logo_black.svg
-            logo_dark: /logo/krisp/Logo_white.svg
-            location: 'Yerevan, Armenia'
-            role: Voice AI Engineer
-            description: |
-                accent reduction, turn detection, text-to-speech models
+                * Biological physics, Active matter
+                * Theory and Simulations
+
+                PhD supervisor [Dr. Ricard Alert](https://ricardalertzenon.wixsite.com/ricardalertzenon)
         
         -
             name: 'Max Plank Institute for Dynamics and Self-Organization'
             logo: /logo/mpi-ds.svg
+            date: Jun 2021 -- Sep 2021
             role: Research Internship
             url: https://www.ds.mpg.de/lmp
             location: 'Göttingen, Germany'
@@ -75,42 +72,60 @@ experience:
                 supervisor [Dr. Benoît Mahault](https://www.ds.mpg.de/3763657/dr-benoit-mahault)
         -
             name: Alikhanyan National Laboratory  (YerPhi)
+            date: Jun 2020 -- June 2022
             logo: /logo/aanl.png
-            role: Researcher at [Division of Quantum Technologies](https://www.yerphi.am/?lang=en)
+            role: Researcher
             url: 'https://www.yerphi.am/?lang=en'
             location: 'Yerevan, Armenia'
             description: |
-                Non-equilibrium thermodynamics for rotating systems,
+                * Magnetobiology, Biological physics
+                * Non-equilibrium thermodynamics for rotating systems,
+                * 3 publications in Q1 journals.
+
+                supervisor [Prof. Armen Allahverdyan](https://sites.google.com/site/armenallahverdyan/)
         
         -
             name: YerevaNN research lab
             logo: /logo/yerevann.svg
             url: https://yerevann.com/
+            date: Jul 2019 -- Sep 2019
             location: Yerevan, Armenia
-            role: Research Internship
+            role: Research Internship in ML
             description: |
-                Heart disease (Brugada) prediction using machine learning
+                * Information theory in machine learning
+                * heart disease (Brugada) prediction, ECG data analysis,
+                * invariant representations: a method to prevent overfitting,
+                * 95% accuracy on a dataset of 300 people.
+                * collaboration with St George's Hospital, London, UK
 
         -
             name: HiLearn
+            date: Sep 2017 -- Aug 2018
             logo: /logo/hilearn.png
             location: Yerevan, Armenia
             role: Machine Learning Scientist
             description: |
-                Designing and implementing trading algorithms on cryptocurrency markets.
+                * Designing and implementing trading algorithms on cryptocurrency markets,
+                * Simulation of financial instruments for risk management.
+                * Deforestation detection with unsupervised learning, using satellite images.
         
         - 
             name: Armenian Code Academy
             logo: /logo/aca.jpg
             location: Yerevan, Armenia
             role: Machine Learning Internship
+            date: Mar 2017 -- Aug 2017
             description: |
-                Classical ML, time series analysis, probabilistic graphical models, etc.
+                Classical ML, NLP,
+                TSA,
+                reinforcement learning,
+                Bayesian inference, probabilistic graphical models.
 
         -            
             name: Physics teacher at "Quantum" College
             logo: /logo/qvant.png
             role: Physics club for students
+            date: Sep 2016 -- Jun 2018
             location: Yerevan, Armenia
             description: |
                 Trained high school students for the national and international physics competitions.
@@ -118,7 +133,7 @@ experience:
             name: Quantum College Alumni Charitable Fund
             url: https://quantum-alumni.am/
             logo: /logo/quantum-alumni.png
-            logo_dark: /logo/quantum-alumni-dark.png
+            date: June 2023 -- *present*
             role: Board member
             location: Yerevan, Armenia
 
