@@ -1,0 +1,99 @@
+---
+title: Lasting effects of static magnetic field on classical Brownian motion
+authors: A. Matevosyan and A. Allahverdyan
+
+date: 2024-06-13
+weight: 2
+
+journal: https://journals.aps.org/pre/abstract/10.1103/PhysRevE.107.014125
+arxiv: https://arxiv.org/abs/2202.13160
+pdf: https://arxiv.org/pdf/2202.13160
+
+featured: images/illustrationCL.svg
+
+intro: |
+
+    The Bohr–van Leeuwen theorem guarantees that a static magnetic field cannot alter the equilibrium state of classical charged particles. We show that while this is true for the particle itself, the thermal environment tells a different story. Using the Caldeira–Leggett model of classical Brownian motion, we demonstrate that uncharged bath oscillators acquire a lasting, nonzero angular momentum that depends on the applied magnetic field, even after the Brownian particle has fully thermalized. Bath modes split into two counter-rotating populations divided at the particle's natural frequency. This behavior is unique to angular momentum: linear momentum dissipates from all observable bath modes, and the magnetic correction to bath energy is negligible. Our results expose a blind spot in the classical understanding of diamagnetism and point toward a possible mechanism for the experimentally observed effects of weak static magnetic fields on biological systems.
+
+page_title: The Magnetic Field That Shouldn't Do Anything, But Does
+---
+
+<p>Imagine placing a charged ion, say a calcium ion in your body, into a warm fluid and switching on a magnetic field. Classical physics has a celebrated answer to the question "what happens?": <em>nothing</em>. The Bohr–van Leeuwen theorem, established over a century ago, guarantees that a static magnetic field cannot alter the equilibrium state of classical charged particles. The magnetic force never does work; therefore, it never changes a particle's energy and thus never shows up in equilibrium statistics. End of story. Or so it seemed.</p>
+
+<p>Our recent work reveals a surprising twist. While the theorem is perfectly correct about the charged particle itself, it says nothing about the <em>environment</em> surrounding it. We show that the thermal bath (the sea of uncharged oscillators that keeps the ion in thermal equilibrium) quietly absorbs the influence of the magnetic field and retains it indefinitely. Uncharged bath modes begin to rotate, splitting into two groups spinning in opposite directions, and this effect persists forever.</p>
+
+<h2>Why Should Anyone Care?</h2>
+
+<p>The question is not purely academic. Metal ions like $\text{Na}^+$, $\text{K}^+$, and $\text{Ca}^{2+}$ are everywhere in biology: about a third of all proteins need metal ions to function. These ions drive nerve impulses, energy storage, metabolism, and signaling. Their translational motion is always classical, so the Bohr–van Leeuwen theorem seems to slam the door on any equilibrium magnetic effect.</p>
+
+<p>Yet there is a large and puzzling body of experimental evidence showing that weak, static magnetic fields <em>do</em> influence biological systems. If the charged particles themselves cannot feel the field in equilibrium, where does the effect come from? Our answer: look at the bath.</p>
+
+<h2>The Setup: A Charged Particle in a Spring-Loaded Bath</h2>
+
+<div style="display:flex; gap:20px; flex-wrap:wrap; justify-content:center; margin:2em 0; align-items:flex-start;">
+  <figure style="flex:1; min-width:200px; max-width:320px;">
+    <img src="images/illustrationCL.svg" alt="Caldeira-Leggett model" style="width:100%; height:250px; object-fit:contain;">
+    <figcaption><strong>Left:</strong> The Caldeira–Leggett model. A charged particle (center) is connected to many harmonic oscillators (black balls) via springs, representing the thermal bath.</figcaption>
+  </figure>
+  <figure style="flex:1; min-width:200px; max-width:320px;">
+    <img src="images/illustrationContinuoum.svg" alt="Continuum picture" style="width:100%; height:250px; object-fit:contain;">
+    <figcaption><strong>Right:</strong> The continuum picture. The same physics, but now the bath is a fluid-like medium surrounding the ion. Both descriptions yield a Langevin equation for the particle.</figcaption>
+  </figure>
+</div>
+
+<p>We use the <strong>Caldeira–Leggett model</strong>, a workhorse of statistical physics. Picture a charged particle sitting in a harmonic potential, coupled to a large number of independent harmonic oscillators (think of tiny masses on springs all attached to the central ion). These oscillators <em>are</em> the thermal bath: they provide friction and random kicks (noise) that together drive the ion toward thermal equilibrium.</p>
+
+<p>Now switch on a uniform magnetic field along the $z$-axis. The ion experiences the Lorentz force, which curves its trajectory but does no work. Integrating out the bath degrees of freedom, you recover a generalized Langevin equation (Newton's law plus friction with memory plus colored noise) related by the fluctuation-dissipation theorem. In the memoryless (Ohmic) limit, this reduces to the familiar Langevin equation with white noise.</p>
+
+<div class="highlight-box">
+  <h3>The Bohr-van Leeuwen theorem in one line</h3>
+  <p>Because the Lorentz force does no work, the magnetic field $B$ never appears in the energy. The equilibrium (Boltzmann) distribution depends only on energy, so it is completely blind to $B$. Equilibrium averages, including the orbital angular momentum of the charged particle, are exactly zero, regardless of the field strength.</p>
+</div>
+
+<h2>The Surprise: The Bath Starts Rotating</h2>
+
+<p>Here is where things get interesting. During its relaxation toward equilibrium, however brief, the charged particle pushes and pulls on the bath oscillators. Once the particle has settled into its equilibrium state and forgotten the magnetic field (as the theorem demands), the bath oscillators <em>have not</em>.</p>
+
+<p>We calculated the long-time average angular momentum of each bath mode and found an exact analytical expression. The key result: even though the bath oscillators carry <em>no charge</em>, they acquire a nonzero angular momentum that depends on the magnetic field and persists forever.</p>
+
+<figure>
+  <img src="images/rotating_bath.svg" alt="Angular momentum of bath oscillators" style="max-width: min(calc(0.6 * var(--tw-max-width)), 100%)">
+  <figcaption><strong>Figure:</strong> The angular momentum $L(\omega)$ of bath oscillators as a function of their frequency $\omega$. Below the natural frequency $\omega_0$, oscillators rotate one way (negative); above it, they rotate the other way (positive). Different curves correspond to different magnetic field strengths: <span style="color:#c0392b">$B = 0.03$</span> (red), <span style="color:#3498db">$B = 0.1$</span> (blue), <span style="color:#222">$B = 0.3$</span> (black). The effect grows with field strength.</figcaption>
+</figure>
+
+<p>The plot tells a beautiful story. The bath oscillators split into two populations separated at the natural frequency $\omega_0$ of the confining potential: one group rotates clockwise, the other counter-clockwise. The angular momentum changes sign exactly at $\omega = \omega_0$ and decays as $\omega^{-4}$ at high frequencies. Stronger magnetic fields amplify the splitting.</p>
+
+<h2>No Contradiction, Just a Loophole</h2>
+
+<p>This does <em>not</em> violate the Bohr–van Leeuwen theorem. The theorem speaks about the equilibrium state of the <em>charged particle</em>, and indeed the particle's own angular momentum averages to zero at long times, exactly as predicted. What the theorem does not address is the state of the environment. The bath is driven slightly out of equilibrium by its interaction with the relaxing Brownian particle, and this non-equilibrium imprint of the magnetic field survives indefinitely.</p>
+
+<blockquote><p>The magnetic field persists in the long-time limit. You just have to look for it not in the particle, but in its environment.</p></blockquote>
+
+<p>There is a conservation law at play. The total effective angular momentum (the particle's orbital angular momentum plus the bath's angular momentum plus a magnetic-field term proportional to the particle's mean-square displacement) is conserved. When the particle thermalizes and its contribution locks to an equilibrium value, the bath must compensate. But remarkably, the bath can also acquire angular momentum <em>spontaneously</em>, even when the conservation law does not require it.</p>
+
+<h2>What About Energy and Linear Momentum?</h2>
+
+<p>Angular momentum turns out to be special. We checked the two other conserved quantities, energy and linear momentum, and found they behave quite differently.</p>
+
+<p>The bath's <em>energy</em> does feel the magnetic field, but only as a tiny perturbation on top of the dominant thermal energy. It is a small correction, not a qualitatively new effect.</p>
+
+<p>The <em>linear momentum</em> is even more different. While it can be temporarily transferred from the particle to the bath, it eventually dissipates away from all observable collective modes, leaking into an unphysical zero-frequency mode. In plain terms: linear momentum gets lost in the noise, while angular momentum stays and is visible forever.</p>
+
+<div class="highlight-box">
+  <h3>Three conserved quantities, three fates</h3>
+  <p><strong>Angular momentum:</strong> Transferred to the bath and retained permanently. Bath oscillators develop lasting rotation that depends on the magnetic field.</p>
+  <p><strong>Energy:</strong> The magnetic field appears only as a small correction to the bath's thermal energy. Not a dramatic effect.</p>
+  <p style="margin-bottom: 0;"><strong>Linear momentum:</strong> Transferred to the bath but eventually dissipated away from all observable modes. It vanishes from sight.</p>
+</div>
+
+<h2>Why It Matters</h2>
+
+<p>This result opens a new window on an old problem. For over a century, the Bohr–van Leeuwen theorem was treated as the final word on classical magnetic effects. Our finding shows that the theorem has a blind spot: it correctly describes the particle but is silent about the bath. And in many physical systems, from ion channels in cell membranes to charged colloids in magnetic confinement to fusion plasmas, the state of the environment matters enormously.</p>
+
+<p>For biophysics, this could be particularly consequential. If a static magnetic field can induce lasting rotational currents in the thermal environment of an ion, this might provide a classical mechanism for the well-documented but poorly understood effects of weak magnetic fields on biological systems, effects that have long searched for a theoretical home.</p>
+
+<h2>What Comes Next</h2>
+
+<p>The Caldeira–Leggett model, while powerful, describes a bath of independent oscillators. In a real fluid, bath modes interact via viscosity. The natural next step is to study fluctuating hydrodynamic models of the bath, which also reproduce Langevin dynamics but include this additional source of dissipation. Preliminary analysis suggests the angular-momentum transfer should survive in these more realistic settings, manifesting as rotational flow in the surrounding fluid.</p>
+
+<p>The deeper message is this: when a famous no-go theorem tells you "nothing happens," it pays to ask: <em>nothing happens to whom?</em></p>
