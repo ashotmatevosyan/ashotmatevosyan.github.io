@@ -125,6 +125,38 @@ article figure img {
   max-width: min(calc(0.8 * var(--tw-max-width)), 100%);
   display: block;
   margin: auto;
+  border-radius: 8px;
+  cursor: zoom-in;
+}
+
+/* Lightbox overlay */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.85);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  cursor: zoom-out;
+}
+.lightbox-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+.lightbox-overlay img {
+  width: 90vw;
+  height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+  transform: scale(0.95);
+  transition: transform 0.25s ease;
+}
+.lightbox-overlay.active img {
+  transform: scale(1);
 }
 
 article h1 {
