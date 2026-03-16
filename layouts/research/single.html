@@ -129,4 +129,31 @@
   {{ end }}
 </article>
 
+<div class="lightbox-overlay" id="lightbox">
+  <img src="" alt="">
+</div>
+<script>
+(function() {
+  var overlay = document.getElementById('lightbox');
+  var overlayImg = overlay.querySelector('img');
+
+  document.querySelectorAll('article figure img').forEach(function(img) {
+    img.addEventListener('click', function() {
+      overlayImg.src = this.src;
+      overlayImg.alt = this.alt;
+      overlayImg.style.background = getComputedStyle(this).background;
+      overlay.classList.add('active');
+    });
+  });
+
+  overlay.addEventListener('click', function() {
+    overlay.classList.remove('active');
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') overlay.classList.remove('active');
+  });
+})();
+</script>
+
 {{ end }}
