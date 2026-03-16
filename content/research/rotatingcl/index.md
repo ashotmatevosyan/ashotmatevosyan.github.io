@@ -1,6 +1,8 @@
 ---
 title: 'System-Bath Approach to Rotational Brownian Motion'
 date: 2025-09-13
+authors: A. Matevosyan and A. Allahverdyan
+
 weight: 1
 
 journal: https://arxiv.org/pdf/2507.03202
