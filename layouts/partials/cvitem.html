@@ -74,6 +74,11 @@
         margin-right: auto;
         margin-top:0;
         object-fit: cover;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+    .logo img.loaded {
+        opacity: 1;
     }
     .logo img.logo-dark {
         display: none;
@@ -99,14 +104,24 @@
 
 <div class="container">
     {{ if .logo }}
+    {{ $logoSrc := .logo }}
+    {{ $logoDarkSrc := .logo_dark }}
+    {{ $assetPath := strings.TrimPrefix "/" .logo }}
+    {{ $res := resources.Get $assetPath }}
+    {{ if $res }}{{ $logoSrc = ($res.Resize "128x").RelPermalink }}{{ end }}
+    {{ if .logo_dark }}
+      {{ $darkAssetPath := strings.TrimPrefix "/" .logo_dark }}
+      {{ $darkRes := resources.Get $darkAssetPath }}
+      {{ if $darkRes }}{{ $logoDarkSrc = ($darkRes.Resize "128x").RelPermalink }}{{ end }}
+    {{ end }}
     <div style="position: relative; width: 100%; height: 0">
     <div class="logo">
         {{if .url }}<a href="{{.url}}" target="_blank">{{end}}
             {{ if .logo_dark }}
-            <img src="{{ .logo }}" class="logo-light">
-            <img src="{{ .logo_dark }}" class="logo-dark">
+            <img src="{{ $logoSrc }}" class="logo-light" loading="lazy" onload="this.classList.add('loaded')">
+            <img src="{{ $logoDarkSrc }}" class="logo-dark" loading="lazy" onload="this.classList.add('loaded')">
             {{ else }}
-            <img src="{{ .logo }}">
+            <img src="{{ $logoSrc }}" loading="lazy" onload="this.classList.add('loaded')">
             {{ end }}
         {{if .url }}</a>{{end}}
     </div>

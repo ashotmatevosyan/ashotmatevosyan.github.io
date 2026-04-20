@@ -32,16 +32,41 @@
     padding-bottom: 20px;
 }
 
+.profile-img-wrap {
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.10);
+    transition: box-shadow 0.3s ease;
+    background: #e8e8e8;
+}
+.dark .profile-img-wrap {
+    background: #2a2a2a;
+}
+.profile-img-wrap:hover {
+    box-shadow: 0 6px 28px rgba(0, 0, 0, 0.16);
+}
+.profile-lqip {
+    position: absolute;
+    inset: -8%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(12px);
+    z-index: 0;
+}
 #profilepic {
     max-width: 100%;
     height: auto;
     border-radius: 50%;
     margin: 0;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.10);
-    transition: box-shadow 0.3s ease;
+    display: block;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.45s ease;
 }
-#profilepic:hover {
-    box-shadow: 0 6px 28px rgba(0, 0, 0, 0.16);
+#profilepic.loaded {
+    opacity: 1;
 }
 
 .hero-heading {
@@ -93,7 +118,31 @@
 <div id="hero">
     <div id="biocontainer">
         <div id="profileimage">
-            <img id="profilepic" src="/profile.jpg" alt="{{ site.Title }}">
+            {{ $profileSrc := "/profile.jpg" }}
+            {{ $profileW := 440 }}
+            {{ $profileH := 440 }}
+            {{ $lqipSrc := "" }}
+            {{ $profileRes := resources.Get "profile.jpg" }}
+            {{ if $profileRes }}
+              {{ $thumb := $profileRes.Resize "440x" }}
+              {{ $lqip := $profileRes.Resize "20x" }}
+              {{ $profileSrc = $thumb.RelPermalink }}
+              {{ $profileW = $thumb.Width }}
+              {{ $profileH = $thumb.Height }}
+              {{ $lqipSrc = $lqip.RelPermalink }}
+            {{ end }}
+            <div class="profile-img-wrap">
+              {{ if $lqipSrc }}<div class="profile-lqip" style="background-image: url('{{ $lqipSrc }}')"></div>{{ end }}
+              <img id="profilepic"
+                src="{{ $profileSrc }}"
+                alt="{{ site.Title }}"
+                width="{{ $profileW }}"
+                height="{{ $profileH }}"
+                fetchpriority="high"
+                class="profile-img-lazy{{ if not $lqipSrc }} loaded{{ end }}"
+                onload="this.classList.add('loaded')"
+              >
+            </div>
         </div>
         <div id="biotext" lang="{{ .Lang }}">
             <div class="hero-heading">
