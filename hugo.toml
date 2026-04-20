@@ -4,7 +4,7 @@ title = 'Ashot Matevosyan'
 
 
 
-copyright = "Copyright © 2008–2019, Steve Francia and the lee.so; all rights reserved."
+copyright = "© Ashot Matevosyan"
 enableInlineShortcodes = true
 
 pagination.pagerSize = 5
@@ -23,8 +23,10 @@ pagination.path = 'page'
   name = 'Ashot Matevosyan'
   bio = ' '
   # bio = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum is simply dummy text of the printing and typesetting industry'
-  description = "Ashot Matevosyan's homepage"
+  description = "Ashot Matevosyan — PhD researcher in nonequilibrium statistical mechanics and biophysics at MPI-PKS, Dresden. Formerly Natural Sciences at Cambridge (Trinity College)."
   tagline = "PhD student in Nonequilibrium Statistical Mechanics at MPI-PKS, Dresden"
+  images = ["/profile.jpg"]
+  keywords = ["nonequilibrium statistical mechanics", "biophysics", "active matter", "theoretical physics", "MPI-PKS", "PhD researcher"]
 
 
   # misc

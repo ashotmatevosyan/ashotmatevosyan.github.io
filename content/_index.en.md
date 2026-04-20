@@ -1,7 +1,8 @@
 ---
-# title: 'addas'
 headless: false
 author: 'ashot'
+description: "Ashot Matevosyan — PhD researcher in nonequilibrium statistical mechanics and biophysics at MPI-PKS, Dresden. Formerly Natural Sciences at Cambridge (Trinity College)."
+images: ["/profile.jpg"]
 ---
 
 

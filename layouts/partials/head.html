@@ -7,10 +7,15 @@
   />
 
   <!-- Title -->
-  <title>{{ if not .IsHome }}{{ .Title }} - {{ end }}{{ site.Title }}</title>
+  {{ if .IsHome }}
+  <title>{{ site.Title }} | Statistical Physicist | MPI-PKS Dresden</title>
+  {{ else }}
+  <title>{{ .Title }} - {{ site.Title }}</title>
+  {{ end }}
 
   <!-- Meta -->
-  <meta name="theme-color" />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fafaf9" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#18181b" />
 
   <!-- Author -->
   {{ $site_author := or site.Author.name site.Params.name site.Title }}
@@ -85,8 +90,52 @@
   <link rel="icon" href="{{ `favicon.ico` | absURL }}" />
   <link rel="apple-touch-icon" href="{{ `apple-touch-icon.png` | absURL }}" />
 
+  <!-- Keywords -->
+  {{ with site.Params.keywords }}
+  <meta name="keywords" content="{{ delimit . ", " }}" />
+  {{ end }}
+
+  <!-- Hreflang alternates (multilingual) -->
+  {{ if .IsTranslated }}
+  {{ range .AllTranslations }}
+  <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" />
+  {{ end }}
+  <link rel="alternate" hreflang="x-default" href="{{ .Permalink }}" />
+  {{ end }}
+
   <!-- Generator -->
   {{ hugo.Generator }}
+
+  <!-- Person JSON-LD (home page only) -->
+  {{ if .IsHome }}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ashot Matevosyan",
+    "url": "{{ site.BaseURL }}",
+    "image": "{{ `/profile.jpg` | absURL }}",
+    "jobTitle": "PhD Student",
+    "description": {{ site.Params.description | jsonify }},
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Max Planck Institute for the Physics of Complex Systems",
+      "url": "https://www.pks.mpg.de/"
+    },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "University of Cambridge, Trinity College",
+      "url": "https://www.trin.cam.ac.uk/"
+    },
+    "knowsAbout": ["Nonequilibrium Statistical Mechanics", "Biophysics", "Active Matter", "Theoretical Physics"],
+    "sameAs": [
+      "https://github.com/matevosashot",
+      "https://linkedin.com/in/matevosashot",
+      "https://scholar.google.com/citations?user=t6St-HsAAAAJ"
+    ]
+  }
+  </script>
+  {{ end }}
 
   <!-- Production -->
   {{ if or hugo.IsProduction (eq site.Params.env "production") }}
