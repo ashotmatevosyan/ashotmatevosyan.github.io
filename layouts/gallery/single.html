@@ -61,11 +61,12 @@
 
 <div id="gallery-lightbox" class="gallery-lightbox" onclick="closeLightbox(event)">
   <button class="lightbox-close" aria-label="Close">&times;</button>
-  <button class="lightbox-nav lightbox-prev" onclick="navigateLightbox(event, -1)" aria-label="Previous">&#8249;</button>
-  <button class="lightbox-nav lightbox-next" onclick="navigateLightbox(event, 1)" aria-label="Next">&#8250;</button>
+  <button class="lightbox-nav lightbox-prev" onclick="navigateLightbox(event, -1)" aria-label="Previous"></button>
+  <button class="lightbox-nav lightbox-next" onclick="navigateLightbox(event, 1)" aria-label="Next"></button>
   <div class="lightbox-content">
     <div class="lightbox-img-wrap">
       <img id="lightbox-img" src="" alt="" />
+      <div class="lightbox-loader" id="lightbox-loader"></div>
     </div>
     <div class="lightbox-info" id="lightbox-info"></div>
   </div>
@@ -76,9 +77,24 @@
   var lightbox = document.getElementById('gallery-lightbox');
   var lbImg = document.getElementById('lightbox-img');
   var lbInfo = document.getElementById('lightbox-info');
+  var loader = document.getElementById('lightbox-loader');
   var items = document.querySelectorAll('.gallery-item img.gallery-img-lazy');
   var idx = 0;
   var touchStartX = 0;
+
+  function setSize(img) {
+    var w = parseInt(img.getAttribute('width') || 0);
+    var h = parseInt(img.getAttribute('height') || 0);
+    if (!w || !h) return;
+    var maxW = window.innerWidth * 0.92;
+    var maxH = window.innerHeight * 0.84;
+    var ratio = w / h;
+    var dw, dh;
+    if (ratio > maxW / maxH) { dw = maxW; dh = maxW / ratio; }
+    else { dh = maxH; dw = maxH * ratio; }
+    lbImg.style.width  = Math.round(dw) + 'px';
+    lbImg.style.height = Math.round(dh) + 'px';
+  }
 
   function updateInfo(img) {
     var parts = [];
@@ -106,13 +122,16 @@
   window.openLightbox = function(img) {
     idx = parseInt(img.dataset.index, 10);
     var capturedIdx = idx;
+    setSize(img);
     lbImg.src = img.src;
     updateInfo(img);
     lightbox.classList.add('active');
     document.body.style.overflow = 'hidden';
+    loader.classList.add('active');
     loadFull(img, function(src) {
       if (lightbox.classList.contains('active') && idx === capturedIdx) {
         lbImg.src = src;
+        loader.classList.remove('active');
       }
     });
   };
@@ -131,12 +150,15 @@
     lbImg.classList.add('lightbox-fade');
     setTimeout(function() {
       updateInfo(target);
+      setSize(target);
+      loader.classList.add('active');
       lbImg.onload = function() {
         lbImg.onload = null;
         lbImg.classList.remove('lightbox-fade');
         loadFull(target, function(src) {
           if (lightbox.classList.contains('active')) {
             lbImg.src = src;
+            loader.classList.remove('active');
           }
         });
       };
